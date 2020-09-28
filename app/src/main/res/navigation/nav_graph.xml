@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
 
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="mrperfect.example.navigationcomponent.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="mrperfect.example.navigationcomponent.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_endGameFragment"
+            app:destination="@id/endGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/endGameFragment"
+        android:name="mrperfect.example.navigationcomponent.EndGameFragment"
+        android:label="fragment_end_game"
+        tools:layout="@layout/fragment_end_game" >
+        <action
+            android:id="@+id/action_endGameFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
 </navigation>
