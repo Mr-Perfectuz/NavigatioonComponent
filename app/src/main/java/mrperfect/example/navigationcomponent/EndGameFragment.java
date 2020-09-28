@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -77,7 +78,10 @@ public class EndGameFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_endGameFragment_to_startFragment);
+//                navController.navigate(R.id.action_endGameFragment_to_startFragment);
+                NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.startFragment, true).build();
+
+                navController.navigate(R.id.action_endGameFragment_to_startFragment, null, navOptions);
             }
         });
     }
